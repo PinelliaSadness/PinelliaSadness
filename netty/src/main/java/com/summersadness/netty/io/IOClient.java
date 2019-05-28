@@ -2,7 +2,6 @@ package com.summersadness.netty.io;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Date;
 import java.util.concurrent.*;
 
 /**

@@ -16,13 +16,27 @@ import io.netty.handler.codec.string.StringDecoder;
  */
 public class NettyServer {
     public static void main(String[] args) {
+        
+        /* 
+         * 创建ServerBootStrap实例
+         **/
         ServerBootstrap serverBootstrap = new ServerBootstrap();
 
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
 
-        serverBootstrap.group(boss, worker)
+        serverBootstrap
+                /*
+                 * 设置并绑定Reactor线程池:EventLoopGroup, EventLoop就是处理所有注册到本线程的Selector上面的Channel
+                 **/
+                .group(boss, worker)
+                /* 
+                 * 设置并绑定服务端的channel
+                 **/
                 .channel(NioServerSocketChannel.class)
+                /* 
+                 * 
+                 **/
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
