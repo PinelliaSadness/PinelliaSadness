@@ -97,7 +97,16 @@ public class MyThread {
         ExecutorService singleThreadPool = Executors.newSingleThreadExecutor();
 
 
+        HelloWorldThread helloWorldThread = new HelloWorldThread();
 
+        try {
+            int count = 100;
+            for (int i = 0; i < count; i ++) {
+                helloWorldThread.addQueue("你到底爱不爱我?" + i);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

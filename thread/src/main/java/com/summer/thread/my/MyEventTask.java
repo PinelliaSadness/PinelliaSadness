@@ -10,6 +10,7 @@ public class MyEventTask extends EventTask{
     public void doing() {
         while (true) {
             System.out.println("my running ");
+            break;
         }
     }
 }
