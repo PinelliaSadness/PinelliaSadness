@@ -9,8 +9,12 @@ public class MyEventTask extends EventTask{
     @Override
     public void doing() {
         while (true) {
-            System.out.println("my running ");
-            break;
+            try {
+                System.out.println("my running ");
+                Thread.sleep(60000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
