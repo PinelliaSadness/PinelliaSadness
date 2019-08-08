@@ -30,7 +30,7 @@ public class ProviderFactoryBeanDefinitionParser extends AbstractSingleBeanDefin
     protected void doParse(Element element, BeanDefinitionBuilder bean) {
 
         try {
-            String serviceItf = element.getAttribute("interface");
+            String serviceItf = element.getAttribute("inter");
             String timeOut = element.getAttribute("timeout");
             String serverPort = element.getAttribute("serverPort");
             String ref = element.getAttribute("ref");

@@ -28,7 +28,7 @@ public class RevokerFactoryBeanDefinitionParser extends AbstractSingleBeanDefini
 
         try {
             String timeOut = element.getAttribute("timeout");
-            String targetInterface = element.getAttribute("interface");
+            String targetInterface = element.getAttribute("inter");
             String clusterStrategy = element.getAttribute("clusterStrategy");
             String remoteAppKey = element.getAttribute("remoteAppKey");
             String groupName = element.getAttribute("groupName");
