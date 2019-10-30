@@ -40,6 +40,7 @@ public class ZookeeperProSync implements Watcher {
                 try {
                     System.out.println("配置已修改，新值为：" + new String(zk.getData(event.getPath(), true, stat)));
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
