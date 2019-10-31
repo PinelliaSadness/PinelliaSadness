@@ -19,6 +19,21 @@ import java.util.concurrent.*;
  */
 public class NIOServer {
     public static void main(String[] args) throws IOException {
+        /***
+         * 1:NIO模型种通常会有两个线程,每个线程绑定一个轮询器selector,
+         * serverSelector负责沦胥是否有新的连接,clientSelector负责沦胥连接是否有数据可读
+         *
+         * 2:服务器监测到新的连接之后,不再创建一个新的线程,而是直接将心连接绑定到clientSelector上
+         * 这样就不用IO模型中创建一个线程进行while循环等待.
+         *
+         * 3.clientSelector 被一个while死循环包裹着,如果在某个时刻有多条连接有数据可读,那么通过
+         * clientSelector.select(1)方法可以沦胥出来,进而批量处理.
+         *
+         * 4.数据的读写以内存块为单位.
+         *
+         */
+
+
         Selector serverSelector = Selector.open();
         Selector clientSelector = Selector.open();
 
